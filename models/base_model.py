@@ -69,7 +69,7 @@ class BaseModel():
             instance class name and datetimes
         '''
         new_dict = self.__dict__
-        new_dict['__class__'] = str(self.__class__.__name__)
+        #new_dict['__class__'] = str(self.__class__.__name__)
         new_dict['created_at'] = datetime.isoformat(self.created_at)
         new_dict['updated_at'] = datetime.isoformat(self.updated_at)
         return new_dict
