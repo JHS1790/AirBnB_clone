@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''file for base model class'''
 
-from models import storage
+from .storage_enabler import storage
 from uuid import uuid4
 from datetime import datetime
 

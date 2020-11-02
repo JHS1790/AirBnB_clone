@@ -1,7 +1,6 @@
 '''initializer for models module'''
 
-from .engine.file_storage import FileStorage
+__all__ = ['BaseModel', 'storage']
 
-__all__ = ["BaseModel"]
-storage = FileStorage()
-storage.reload()
+from .storage_enabler import storage
+from .base_model import BaseModel
