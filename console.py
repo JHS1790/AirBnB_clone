@@ -133,6 +133,8 @@ class HBNBCommand(cmd.Cmd):
                     Instance = ClassName + '.' + id
                     if Instance in SavedDict:
                         print("** attribute name missing **")
+                    elif ClassName not in models.__all__:
+                        print("** class doesn't exist **")
                     else:
                         print("** no instance found **")
                     return
@@ -142,8 +144,10 @@ class HBNBCommand(cmd.Cmd):
                             print("** instance id missing **")
                         else:
                             print("** class doesn't exist **")
+                        return
                     else:
                         print("** class name missing **")
+                        return
         Instance = ClassName + '.' + id
         if Instance in SavedDict:
             SavedDict[Instance][AttrName] = Value
@@ -163,5 +167,3 @@ def print_formater(ClassName, id):
     return strout
 
 
-if __name__ == '__main__':
-    HBNBCommand().cmdloop()
