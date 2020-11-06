@@ -35,10 +35,8 @@ class BaseModel():
             self.id = str(uuid4())
             #self.created_at = datetime.strptime(datetime.now(), '%Y-%m-%d %H:%M:%S.%f')
             self.created_at = datetime.now()
-            print(type(self.created_at))
-            print(self.created_at)
             self.updated_at = datetime.now()
-            storage.new(self)
+            #storage.new(self)
 
     def __str__(self):
         '''The string of fate has been severed,
@@ -72,7 +70,7 @@ class BaseModel():
             instance class name and datetimes
         '''
         new_dict = self.__dict__
-        #new_dict['__class__'] = str(self.__class__.__name__)
-        #new_dict['created_at'] = datetime.isoformat(self.created_at)
-        #new_dict['updated_at'] = datetime.isoformat(self.updated_at)
+        new_dict['__class__'] = str(self.__class__.__name__)
+        new_dict['created_at'] = datetime.isoformat(self.created_at)
+        new_dict['updated_at'] = datetime.isoformat(self.updated_at)
         return new_dict
